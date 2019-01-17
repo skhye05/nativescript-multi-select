@@ -1,28 +1,54 @@
-import { Observable } from 'tns-core-modules/data/observable';
-import * as app from 'tns-core-modules/application';
-import * as dialogs from 'tns-core-modules/ui/dialogs';
-
-export class Common extends Observable {
-  public message: string;
-
-  constructor() {
-    super();
-    this.message = Utils.SUCCESS_MSG();
-  }
-
-  public greet() {
-    return "Hello, NS";
-  }
+export interface MSOption {
+  title: string;
+  itemColor?: string;
+  confirmButtonTextColor?: string;
+  confirmButtonText?: string;
+  cancelButtonTextColor?: string;
+  cancelButtonText?: string;
+  items: Array<any>;
+  bindValue: string;
+  ios?: MSiOSOption;
+  onConfirm: (selectedItems: Array<any>) => void;
+  onItemSelected?: (selectedItem: any) => void;
+  onCancel?: () => void;
 }
 
-export class Utils {
-  public static SUCCESS_MSG(): string {
-    let msg = `Your plugin is working on ${app.android ? 'Android' : 'iOS'}.`;
+export interface MSiOSOption {
+  cancelButtonBgColor: string;
+  confirmButtonBgColor: string;
+  image?: string;
+  showType?: number;
+  dismissType?: number;
+}
 
-    setTimeout(() => {
-      dialogs.alert(`${msg} For real. It's really working :)`).then(() => console.log(`Dialog closed.`));
-    }, 2000);
+export enum AShowType {
+  TypeNone = 0,
+  TypeFadeIn,
+  TypeGrowIn,
+  TypeShrinkIn,
+  TypeSlideInFromTop,
+  TypeSlideInFromBottom,
+  TypeSlideInFromLeft,
+  TypeSlideInFromRight,
+  TypeBounceIn,
+  TypeBounceInFromTop,
+  TypeBounceInFromBottom,
+  TypeBounceInFromLeft,
+  TypeBounceInFromRight,
+}
 
-    return msg;
-  }
+export enum ADismissType {
+  TypeNone = 0,
+  TypeFadeOut,
+  TypeGrowOut,
+  TypeShrinkOut,
+  TypeSlideOutToTop,
+  TypeSlideOutToBottom,
+  TypeSlideOutToLeft,
+  TypeSlideOutToRight,
+  TypeBounceOut,
+  TypeBounceOutToTop,
+  TypeBounceOutToBottom,
+  TypeBounceOutToLeft,
+  TypeBounceOutToRight,
 }

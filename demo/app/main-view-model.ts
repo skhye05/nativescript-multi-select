@@ -3,12 +3,28 @@ import { MultiSelect } from 'nativescript-multi-select';
 
 export class HelloWorldModel extends Observable {
   public message: string;
-  private multiSelect: MultiSelect;
+
+  private _MSelect: MultiSelect;
 
   constructor() {
     super();
 
-    this.multiSelect = new MultiSelect();
-    this.message = this.multiSelect.message;
+    this._MSelect = new MultiSelect();
+
+    this._MSelect.show({
+      title: "PLease Select",
+      items: ['A', 'B', 'C', 'D'],
+      bindValue: null,
+      onConfirm: (selectedItems => {
+
+      }),
+      onCancel: () => {
+        console.log('cancel');
+      },
+      ios: {
+        cancelButtonBgColor: "Red",
+        confirmButtonBgColor: "#ffff000"
+      }
+    })
   }
 }

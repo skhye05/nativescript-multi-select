@@ -1,0 +1,1 @@
+pod "AAMultiSelectController", :git => "https://github.com/skhye05/AAMultiSelectController.git"
