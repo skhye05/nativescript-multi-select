@@ -29,11 +29,11 @@ export class MultiSelect {
 
         // assign predefined selected items
         if (options.selectedItems && options.selectedItems instanceof Array) {
-            this._selectedItems = [...options.selectedItems];
+            this._selectedItems = options.selectedItems.filter(() => true);
         }
 
         // assign items
-        this.MSSelect.dataArray = this.dataArray([...options.items], options.displayLabel, options.bindValue);
+        this.MSSelect.dataArray = this.dataArray(options.items.filter(() => true), options.displayLabel, options.bindValue);
 
         // on confirm button tapped
         this.MSSelect.confirmBlock = (selectedItems: NSArray<AAMultiSelectModel>) => {

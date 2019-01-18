@@ -54,7 +54,7 @@ const options: MSOption = {
   }
 };
 
-MSelect.show();
+MSelect.show(options);
 ```
 
 ## API

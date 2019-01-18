@@ -50,6 +50,6 @@ export class HelloWorldModel extends Observable {
       }
     };
 
-    this._MSelect.show();
+    this._MSelect.show(options);
   }
 }

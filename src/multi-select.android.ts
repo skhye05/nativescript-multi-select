@@ -16,11 +16,11 @@ export class MultiSelect {
 
         // assign selectedItems
         if (options.selectedItems && options.selectedItems instanceof Array) {
-            this._selectedItems = [...options.selectedItems];
+            this._selectedItems = options.selectedItems.filter(() => true);
         }
 
         // assign list
-        const lists = this.lists([...options.items], options.displayLabel, options.bindValue);
+        const lists = this.lists(options.items.filter(() => true), options.displayLabel, options.bindValue);
 
         const MSSelect = new com.abdeveloper.library.MultiSelectDialog()
 
@@ -104,15 +104,15 @@ export class MultiSelect {
 
             // auto select items based on the predefined lists
             if (this._selectedItems) {
-                let index;
+                let _index;
 
                 if (bindValue) {
-                    index = this._selectedItems.findIndex(sItem => sItem === item[bindValue]);
+                    _index = this._selectedItems.findIndex(sItem => sItem === item[bindValue]);
                 } else {
-                    index = this._selectedItems.findIndex(sItem => JSON.stringify(sItem) === JSON.stringify(item));
+                    _index = this._selectedItems.findIndex(sItem => JSON.stringify(sItem) === JSON.stringify(item));
                 }
 
-                if (index >= 0) {
+                if (_index >= 0) {
                     this._selectedIds.add(new java.lang.Integer(index));
                 }
             }
