@@ -1,8 +1,6 @@
 export interface MSOption {
   title: string;
-  confirmButtonTextColor?: string;
   confirmButtonText?: string;
-  cancelButtonTextColor?: string;
   cancelButtonText?: string;
   selectedItems?: Array<any>;
   items: Array<any>;
@@ -18,6 +16,8 @@ export interface MSOption {
 export interface MSiOSOption {
   cancelButtonBgColor?: string;
   confirmButtonBgColor?: string;
+  confirmButtonTextColor?: string;
+  cancelButtonTextColor?: string;
   image?: string;
   showType?: number;
   dismissType?: number;
@@ -26,4 +26,6 @@ export interface MSiOSOption {
 
 export interface MSAndroidOption {
   titleSize?: number;
+  confirmButtonTextColor?: string;
+  cancelButtonTextColor?: string;
 }

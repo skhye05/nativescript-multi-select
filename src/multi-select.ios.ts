@@ -3,14 +3,10 @@ import { Color } from "tns-core-modules/color/color";
 
 export class MultiSelect {
     private MSSelect: AAMultiSelectViewController;
-    private _selectedItems: Array<any>;
+    private _selectedItems: Array<any>; // predefined/selected items list
 
     constructor() {
         this._selectedItems = new Array<any>();
-    }
-
-    public init(options: MSOption): void {
-
     }
 
     public show(options: MSOption): void {
@@ -21,19 +17,9 @@ export class MultiSelect {
         this.MSSelect.titleText = options.title;
         this.MSSelect.view.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.frame) * .9, CGRectGetHeight(self.view.frame) * .9);
 
-        // assign confirm text color
-        if (options.confirmButtonTextColor) {
-            this.MSSelect.confirmButtonTitleColor = new Color(options.confirmButtonTextColor).ios;
-        }
-
         // assign confirm button text
         if (options.confirmButtonText) {
             this.MSSelect.confirmButtonTitleText = options.confirmButtonText;
-        }
-
-        // assign cancel button text color
-        if (options.cancelButtonTextColor) {
-            this.MSSelect.confirmButtonTitleColor = new Color(options.cancelButtonTextColor).ios;
         }
 
         // assign cancel button text
@@ -41,7 +27,7 @@ export class MultiSelect {
             this.MSSelect.cancelButtonTitleText = options.cancelButtonText;
         }
 
-        // assign selectedItems
+        // assign predefined selected items
         if (options.selectedItems && options.selectedItems instanceof Array) {
             this._selectedItems = [...options.selectedItems];
         }
@@ -49,7 +35,7 @@ export class MultiSelect {
         // assign items
         this.MSSelect.dataArray = this.dataArray([...options.items], options.displayLabel, options.bindValue);
 
-        // assign confirm callback
+        // on confirm button tapped
         this.MSSelect.confirmBlock = (selectedItems: NSArray<AAMultiSelectModel>) => {
             const items: Array<any> = new Array();
             for (let i = 0; i < selectedItems.count; i++) {
@@ -59,18 +45,19 @@ export class MultiSelect {
             options.onConfirm(items);
         };
 
-        // assign onSelected callback
+        // on item selected
         if (options.onItemSelected) {
-            this.MSSelect.selectedBlock = (p1: any) => {
-                options.onItemSelected(p1);
+            this.MSSelect.selectedBlock = (item: any) => {
+                options.onItemSelected(options.bindValue ? options.items[item.multiSelectId][options.bindValue] : options.items[item.multiSelectId]);
             };
         }
 
-        // assign onCancel callback
+        // on cancel button tapped
         if (options.onCancel) {
             this.MSSelect.cancelBlock = (p1: any) => {
                 const mutableArray: NSMutableArray<any> = NSMutableArray.array();
 
+                // remove all selected items that doesn't belong to predefined
                 options.items.forEach((item, index) => {
                     const model: AAMultiSelectModel = AAMultiSelectModel.new();
                     model.title = item;
@@ -88,25 +75,41 @@ export class MultiSelect {
         if (options.ios) {
             const _ios = options.ios;
 
+            // assign item text color
             if (_ios.itemColor) {
                 this.MSSelect.itemTitleColor = new Color(_ios.itemColor).ios;
             }
 
+            // assign cancel button background color
             if (_ios.cancelButtonBgColor) {
                 this.MSSelect.cancelButtonBackgroudColor = new Color(_ios.cancelButtonBgColor).ios;
             }
 
+            // assign confirm button background color
             if (_ios.confirmButtonBgColor) {
                 this.MSSelect.confirmButtonBackgroudColor = new Color(_ios.confirmButtonBgColor).ios;
             }
 
+            // assign cancel button text color
+            if (_ios.cancelButtonTextColor) {
+                this.MSSelect.confirmButtonTitleColor = new Color(_ios.cancelButtonTextColor).ios;
+            }
+
+            // assign confirm text color
+            if (_ios.confirmButtonTextColor) {
+                this.MSSelect.confirmButtonTitleColor = new Color(_ios.confirmButtonTextColor).ios;
+            }
+
+            // assign animation on show popup
             if (_ios.showType) {
                 this.MSSelect.popupShowType = _ios.showType;
             }
 
+            // assign animation on dismiss popup
             if (_ios.dismissType) {
                 this.MSSelect.popupDismissType = _ios.dismissType;
             }
+
         }
 
         // Show
@@ -116,15 +119,17 @@ export class MultiSelect {
     private dataArray(items, displayValue, bindValue): NSArray<any> {
         const mutableArray: NSMutableArray<any> = NSMutableArray.array();
 
+        // populate list to be display
         items.forEach((item, index) => {
             const model: AAMultiSelectModel = AAMultiSelectModel.new();
 
             if (typeof item === "string") {
-                model.title = item;
+                model.title = item; // assign item name if item is a string
             } else if (item instanceof Object) {
-                model.title = item[displayValue];
+                model.title = item[displayValue]; // assign item name through if item is a object
             }
 
+            // auto select items based on the predefined lists
             if (this._selectedItems) {
                 let index;
 
@@ -134,7 +139,6 @@ export class MultiSelect {
                     index = this._selectedItems.findIndex(sItem => JSON.stringify(sItem) === JSON.stringify(item));
                 }
 
-                console.log(index);
                 if (index >= 0) {
                     model.isSelected = true;
                 }
@@ -142,8 +146,6 @@ export class MultiSelect {
             model.multiSelectId = index;
             mutableArray.addObject(model);
         });
-
-
 
         return mutableArray;
     }

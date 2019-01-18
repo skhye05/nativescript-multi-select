@@ -3,56 +3,79 @@ import { Color } from "tns-core-modules/color/color";
 import * as application from "tns-core-modules/application";
 
 export class MultiSelect {
-    private MSSelect: com.abdeveloper.library.MultiSelectDialog;
-    private _selectedItems: Array<any>;
-    private _selectedIds: java.util.ArrayList<any>;
-    private _items: Array<any>;
+    private _selectedItems: Array<any>; // selected items list
+    private _selectedIds: java.util.ArrayList<any>; // predefined list
 
     constructor() {
         this._selectedItems = new Array<any>();
-        this._items = new Array<any>();
-        this._selectedIds = new java.util.ArrayList<any>();
-    }
-
-    public init(): void {
-
     }
 
     public show(options: MSOption): void {
 
+        this._selectedIds = new java.util.ArrayList<any>();
+
+        // assign selectedItems
+        if (options.selectedItems && options.selectedItems instanceof Array) {
+            this._selectedItems = [...options.selectedItems];
+        }
+
+        // assign list
         const lists = this.lists([...options.items], options.displayLabel, options.bindValue);
-        console.log("SIZE =>>>", lists.size());
+
         const MSSelect = new com.abdeveloper.library.MultiSelectDialog()
 
-            .title(options.title) // setting title for dialog
+            // assign title
+            .title(options.title)
 
-            .titleSize(options.android.titleSize ? options.android.titleSize : 25)
+            // assign title size
+            .titleSize(options.android ? options.android.titleSize ? options.android.titleSize : 25 : 25)
 
-            .positiveText(options.confirmButtonText ? options.confirmButtonText : "Done")
+            // assign confirm button text
+            .positiveText(options.confirmButtonText ? options.confirmButtonText : "Confirm")
 
-            .positiveTextColor(options.confirmButtonTextColor ? new Color(options.confirmButtonTextColor).android : new Color("red").android)
+            // assign confirm button text color
+            .positiveTextColor(options.android ? options.android.confirmButtonTextColor ? new Color(options.android.confirmButtonTextColor).android : null : null)
 
+            // assign cancel button text
             .negativeText(options.cancelButtonText ? options.cancelButtonText : "Cancel")
 
-            .positiveTextColor(options.cancelButtonTextColor ? new Color(options.cancelButtonTextColor).android : new Color("red").android)
+            // assign cancel button text color
+            .positiveTextColor(options.android ? options.android.cancelButtonTextColor ? new Color(options.android.cancelButtonTextColor).android : null : null)
 
             .setMinSelectionLimit(0)
 
             .setMaxSelectionLimit(lists.size())
 
-            .preSelectIDsList(this._selectedIds) // List of ids that you need to be selected
+            // assign predefined selected items
+            .preSelectIDsList(this._selectedIds)
 
-            .multiSelectList(lists) // the multi select model list with ids and name
+            // assign items
+            .multiSelectList(lists)
 
             .onSubmit(new com.abdeveloper.library.MultiSelectDialog.SubmitCallbackListener({
+                // on confirm button tapped
                 onSelected: (selectedIds: java.util.ArrayList<java.lang.Integer>, selectedNames: java.util.ArrayList<string>, dataString: string) => {
-
+                    const items: Array<any> = new Array();
+                    for (let i = 0; i < selectedIds.size(); i++) {
+                        let id = selectedIds.get(i);
+                        items.push(options.bindValue ? options.items[id][options.bindValue] : options.items[id]);
+                    }
+                    options.onConfirm(items);
                 },
-                onCancel: () => {
 
+                // on cancel button tapped
+                onCancel: () => {
+                    options.onCancel();
+                },
+
+                // on item selected
+                onItemSelected: (selectedId: any, name: any) => {
+                    const item = options.bindValue ? options.items[selectedId][options.bindValue] : options.items[selectedId];
+                    options.onItemSelected(item);
                 }
             }));
 
+        // Show
         (MSSelect as any)
             .show(
                 application.android.foregroundActivity.getSupportFragmentManager(),
@@ -61,47 +84,42 @@ export class MultiSelect {
     }
 
     private lists(items, displayValue, bindValue): java.util.ArrayList<com.abdeveloper.library.MultiSelectModel> {
-        console.log("SIZE =>>>");
         const lists: java.util.ArrayList<com.abdeveloper.library.MultiSelectModel> = new java.util.ArrayList<any>();
-        console.log("SIZE$$ =>>>");
-        items.forEach((item, index) => {
 
+        // populate list to be display
+        items.forEach((item, index) => {
             let title;
 
+            // if items is an array of string
             if (typeof item === "string") {
                 title = item;
             } else if (item instanceof Object) {
                 title = item[displayValue];
             }
 
-           // const model: com.abdeveloper.library.MultiSelectModel = new com.abdeveloper.library.MultiSelectModel(index, title);
+            const id: java.lang.Integer = new java.lang.Integer(index);
+            const model: any = new com.abdeveloper.library.MultiSelectModel(id, title);
 
-            lists.add(item);
-           
+            lists.add(model);
 
+            // auto select items based on the predefined lists
             if (this._selectedItems) {
                 let index;
-               
+
                 if (bindValue) {
                     index = this._selectedItems.findIndex(sItem => sItem === item[bindValue]);
                 } else {
                     index = this._selectedItems.findIndex(sItem => JSON.stringify(sItem) === JSON.stringify(item));
                 }
-             
 
                 if (index >= 0) {
-                    this._selectedIds.add(index);
+                    this._selectedIds.add(new java.lang.Integer(index));
                 }
             }
-            console.log("SIZE$$ =>>>", lists.size());
-
-
         });
-
 
         return lists;
     }
-
 }
 
 export enum AShowType {

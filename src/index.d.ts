@@ -1,8 +1,6 @@
 export declare interface MSOption {
   title: string;
-  confirmButtonTextColor?: string;
   confirmButtonText?: string;
-  cancelButtonTextColor?: string;
   cancelButtonText?: string;
   selectedItems?: Array<any>;
   items: Array<any>;
@@ -17,6 +15,8 @@ export declare interface MSOption {
 export declare interface MSiOSOption {
   cancelButtonBgColor?: string;
   confirmButtonBgColor?: string;
+  confirmButtonTextColor?: string;
+  cancelButtonTextColor?: string;
   image?: string;
   showType?: number;
   dismissType?: number;
@@ -24,7 +24,10 @@ export declare interface MSiOSOption {
 }
 export declare interface MSAndroidOption {
   titleSize?: number;
+  confirmButtonTextColor?: string;
+  cancelButtonTextColor?: string;
 }
+
 export declare enum AShowType {
   TypeNone = 0,
   TypeFadeIn = 1,
@@ -58,6 +61,5 @@ export declare enum ADismissType {
 
 export declare class MultiSelect {
   constructor();
-  init(options: MSOption): void;
   show(options: MSOption): void;
 }

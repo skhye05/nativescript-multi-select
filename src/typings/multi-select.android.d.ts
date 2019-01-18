@@ -52,10 +52,12 @@ declare module com {
 					public constructor(implementation: {
 						onSelected(param0: java.util.ArrayList<java.lang.Integer>, param1: java.util.ArrayList<string>, param2: string): void;
 						onCancel(): void;
+						onItemSelected(param0: java.lang.Integer, param1: string): void;
 					});
 					public constructor();
 					public onSelected(param0: java.util.ArrayList<java.lang.Integer>, param1: java.util.ArrayList<string>, param2: string): void;
 					public onCancel(): void;
+					public onItemSelected(param0: java.lang.Integer, param1: string): void;
 				}
 			}
 		}
