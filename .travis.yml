@@ -4,7 +4,7 @@ matrix:
       language: node_js
       os: linux
       node_js: "8"
-      script: cd src && npm run ci.tslint && cd ../demo && npm run ci.tslint
+      script: $ANDROID_HOME && cd src && npm run ci.tslint && cd ../demo && npm run ci.tslint
     - stage: "WebPack, Build and Test"
       os: osx
       env:
@@ -86,7 +86,7 @@ android:
     - android-28
     - extra-android-m2repository
     - sys-img-armeabi-v7a-android-21
-    
+
 before_cache:
     - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock 
 
