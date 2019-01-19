@@ -99,6 +99,7 @@ cache:
 before_install:
     - sudo pip install --upgrade pip
     - sudo pip install six
+    - npm cache clean force
 
 install:
     - echo no | npm install -g nativescript
