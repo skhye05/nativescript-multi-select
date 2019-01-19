@@ -86,6 +86,15 @@ android:
     - android-28
     - extra-android-m2repository
     - sys-img-armeabi-v7a-android-21
+    
+before_cache:
+    - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock 
+
+cache:
+    directories:
+        - .nvm
+        - $HOME/.gradle/caches/
+        - $HOME/.gradle/wrapper/
 
 before_install:
     - sudo pip install --upgrade pip
