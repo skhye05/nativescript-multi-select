@@ -12,6 +12,8 @@ tns plugin add nativescript-multi-select
 
 ## Usage
 
+### TypeScript
+
 ```typescript
 import { MultiSelect, AShowType } from 'nativescript-multi-select';
 import { MSOption } from 'nativescript-multi-select';
@@ -55,6 +57,145 @@ const options: MSOption = {
 };
 
 MSelect.show(options);
+```
+
+### Angular
+
+```typescript
+import { Component, OnInit, NgZone } from "@angular/core";
+import { MultiSelect, AShowType } from 'nativescript-multi-select';
+import { MSOption } from 'nativescript-multi-select';
+
+@Component({
+ // ...
+})
+export class SomeComponent implements OnInit {
+
+  private _MSelect: MultiSelect;
+  private predefinedItems: Array<any>;
+  public selectedItems: Array<any>;
+
+  constructor(private zone: NgZone) {
+    this._MSelect = new MultiSelect();
+    this.predefinedItems = ["moi-a", "moi-b"];
+  }
+
+  ngOnInit(): void {
+  }
+
+
+  public onSelectTapped(): void {
+    const options: MSOption = {
+      title: "Please Select",
+      selectedItems: this.predefinedItems,
+      items: [
+        { name: "A", value: "moi-a" },
+        { name: "B", value: "moi-b" },
+        { name: "C", value: "moi-c" },
+        { name: "D", value: "moi-d" },
+      ],
+      bindValue: 'value',
+      displayLabel: 'name',
+      onConfirm: selectedItems => {
+        this.zone.run(() => {
+          this.selectedItems = selectedItems;
+          this.predefinedItems = selectedItems;
+          console.log("SELECTED ITEMS => ", selectedItems);
+        })
+      },
+      onItemSelected: selectedItem => {
+        console.log("SELECTED ITEM => ", selectedItem);
+      },
+      onCancel: () => {
+        console.log('CANCEL');
+      },
+      android: {
+        titleSize: 25,
+        cancelButtonTextColor: "#252323",
+        confirmButtonTextColor: "#70798C",
+      },
+      ios: {
+        cancelButtonBgColor: "#252323",
+        confirmButtonBgColor: "#70798C",
+        cancelButtonTextColor: "#ffffff",
+        confirmButtonTextColor: "#ffffff",
+        showType: AShowType.TypeBounceIn
+      }
+    };
+
+    this._MSelect.show(options);
+  }
+}
+```
+
+### Vue
+
+```html
+<script>
+  import {
+    MultiSelect,
+    AShowType
+  } from "nativescript-multi-select";
+  const MSelect = new MultiSelect();
+  let predefinedItems = ["moi-a", "moi-b"];
+  
+  export default {
+    data() {
+    },
+    methods: {
+      onSelectTapped() {
+        const that = this;
+        const options = {
+          title: "Please Select",
+          selectedItems: predefinedItems,
+          items: [{
+              name: "A",
+              value: "moi-a"
+            },
+            {
+              name: "B",
+              value: "moi-b"
+            },
+            {
+              name: "C",
+              value: "moi-c"
+            },
+            {
+              name: "D",
+              value: "moi-d"
+            }
+          ],
+          bindValue: "value",
+          displayLabel: "name",
+          onConfirm: _selectedItems => {
+            that.selectedItems = _selectedItems;
+            console.log("SELECTED ITEMS => ", _selectedItems);
+          },
+          onItemSelected: selectedItem => {
+            console.log("SELECTED ITEM => ", selectedItem);
+          },
+          onCancel: () => {
+            console.log("CANCEL");
+          },
+          android: {
+            titleSize: 25,
+            cancelButtonTextColor: "#252323",
+            confirmButtonTextColor: "#70798C"
+          },
+          ios: {
+            cancelButtonBgColor: "#252323",
+            confirmButtonBgColor: "#70798C",
+            cancelButtonTextColor: "#ffffff",
+            confirmButtonTextColor: "#ffffff",
+            showType: AShowType.TypeBounceIn
+          }
+        };
+  
+        MSelect.show(options);
+      }
+    }
+  };
+</script>
 ```
 
 ## API

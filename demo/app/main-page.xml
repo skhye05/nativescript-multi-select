@@ -1,9 +1,11 @@
 <Page xmlns="http://schemas.nativescript.org/tns.xsd" loaded="pageLoaded" class="page"
   xmlns:ui="nativescript-multi-select">
-  <GridLayout>
-    <StackLayout class="p-20">
-      <Label text="MOI" class="t-20 text-center c-black" textWrap="true"/>
-      <Button text="show" tap="{{ show }}"/>
+  <GridLayout rows="* auto">
+    <StackLayout id="stackLayoutId" row="0" class="p-20">
+    </StackLayout>
+
+    <StackLayout row="1" class="p-10">
+      <Button class="btn btn-primary" text="select" tap="{{ onSelectTapped }}"/>
     </StackLayout>
   </GridLayout>
 </Page>
