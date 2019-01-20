@@ -1,6 +1,6 @@
 {
     "name": "nativescript-multi-select",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Your awesome NativeScript plugin.",
     "main": "multi-select",
     "typings": "index.d.ts",
