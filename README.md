@@ -4,6 +4,8 @@
 
  Nativescript Multi Select is a popup dialog which provides multi selection, search through list and return the selected items.
 
+ ![Screenshot of iOS](https://raw.githubusercontent.com/skhye05/NativeScript-Multi-Select/master/ios.gif)
+
 ## Installation
 
 ```javascript
