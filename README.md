@@ -211,7 +211,8 @@ export class SomeComponent implements OnInit {
 | ------------------------- | ----------- | ------------------------ |
 | `show(options: MSOption)` | `() : void` | Show Multi Select Dialog |
 
-### interface MSOption 
+### MSOption
+
 | Property                                         | Type                | Description                                                                                         |
 | ------------------------------------------------ | ------------------- | --------------------------------------------------------------------------------------------------- |
 | `title`                                          | `string`            | Dialog Title                                                                                        |
@@ -227,7 +228,15 @@ export class SomeComponent implements OnInit {
 | `onItemSelected: (selectedItem: any) => void`    | `Function Callback` | callback which fires when an item has been selected `optional`                                      |
 | `onCancel:  () => void`                          | `Function Callback` | callback which fires when the cancel button is tapped `optional`                                    |
 
-### interface MSiOSOption
+### MSAndroidOption (for android)
+
+| Property                 | Type     | Description |
+| ------------------------ | -------- | ----------- |
+| `titleSize`              | `number` | `optional`  |
+| `confirmButtonTextColor` | `string` | `optional`  |
+| `cancelButtonTextColor`  | `string` | `optional`  |
+
+### MSiOSOption (for ios)
 
 | Property                 | Type     | Description                                                                  |
 | ------------------------ | -------- | ---------------------------------------------------------------------------- |
@@ -238,14 +247,6 @@ export class SomeComponent implements OnInit {
 | `showType`               | `number` | popup view show type, default by AAPopupViewShowTypeFadeIn `optional`        |
 | `dismissType`            | `number` | popup view dismiss type, default by AAPopupViewDismissTypeFadeOut `optional` |
 | `itemColor`              | `string` | item text color `optional`                                                   |
-
-### interface MSAndroidOption
-
-| Property                 | Type     | Description |
-| ------------------------ | -------- | ----------- |
-| `titleSize`              | `number` | `optional`  |
-| `confirmButtonTextColor` | `string` | `optional`  |
-| `cancelButtonTextColor`  | `string` | `optional`  |
 
 ### iOS Popup: Animation AShowType ENUM
 

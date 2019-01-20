@@ -1,6 +1,6 @@
 {
     "name": "nativescript-multi-select",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "description": "Multi Select popup dialog.",
     "main": "multi-select",
     "typings": "index.d.ts",
