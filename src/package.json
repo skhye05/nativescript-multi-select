@@ -34,8 +34,7 @@
         "preparedemo-ng": "npm run tsc && npm run package && cd ../demo-ng && tns plugin remove nativescript-multi-select && tns plugin add ../publish/package/*.tgz && tns install",
         "preparedemo-vue": "npm run tsc && npm run package && cd ../demo-vue && tns plugin remove nativescript-multi-select && tns plugin add ../publish/package/*.tgz && tns install",
         "clean": "npm run demo.reset && npx rimraf -- node_modules package-lock.json && npm i",
-        "ci.tslint": "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**'",
-        "prepack": "npm run build.native"
+        "ci.tslint": "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**'"
     },
     "keywords": [
         "NativeScript",
