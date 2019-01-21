@@ -1,23 +1,37 @@
 import { Observable } from 'tns-core-modules/data/observable';
+import { Page } from 'tns-core-modules/ui/page/page';
+import { Repeater } from 'tns-core-modules/ui/repeater';
+import { StackLayout } from 'tns-core-modules/ui/layouts/stack-layout';
 import { MultiSelect, AShowType } from 'nativescript-multi-select';
 import { MSOption } from 'nativescript-multi-select';
 
 export class HelloWorldModel extends Observable {
-  public message: string;
-
   private _MSelect: MultiSelect;
-  private _selectedItems: Array<any>;
+  private predefineItems: Array<any>;
+  private repeater: Repeater;
+  public selectedItems: Array<any>;
 
-  constructor() {
+  constructor(page: Page) {
     super();
+
+    this.repeater = new Repeater();
     this._MSelect = new MultiSelect();
-    this._selectedItems = ["moi-a", "moi-b"];
+    this.predefineItems = ["moi-a", "moi-b"];
+
+    const stackLayoutContainer = page.getViewById<StackLayout>("stackLayoutId");
+    const stackLayout = new StackLayout();
+
+    this.repeater.itemsLayout = stackLayout;
+    this.repeater.itemTemplate = `<Label text="{{ $value }}" class="text-center p-10" />`;
+    this.repeater.items = this.selectedItems;
+
+    stackLayoutContainer.addChild(this.repeater);
   }
 
-  public show(): void {
+  public onSelectTapped(): void {
     const options: MSOption = {
       title: "Please Select",
-      selectedItems: this._selectedItems,
+      selectedItems: this.predefineItems,
       items: [
         { name: "A", value: "moi-a" },
         { name: "B", value: "moi-b" },
@@ -27,7 +41,10 @@ export class HelloWorldModel extends Observable {
       bindValue: 'value',
       displayLabel: 'name',
       onConfirm: selectedItems => {
-        this._selectedItems = selectedItems;
+        this.selectedItems = selectedItems;
+        this.repeater.items = this.selectedItems;
+        this.repeater.refresh();
+        this.predefineItems = selectedItems;
         console.log("SELECTED ITEMS => ", selectedItems);
       },
       onItemSelected: selectedItem => {

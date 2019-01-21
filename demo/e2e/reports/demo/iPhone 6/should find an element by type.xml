@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?><AppiumAUT><XCUIElementTypeApplication type="XCUIElementTypeApplication" name="demo" label="demo" enabled="true" visible="true" x="0" y="0" width="375" height="667">
+  <XCUIElementTypeWindow type="XCUIElementTypeWindow" enabled="true" visible="true" x="0" y="0" width="375" height="667">
+    <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" x="0" y="0" width="375" height="667">
+      <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" x="0" y="0" width="375" height="667">
+        <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" x="0" y="0" width="375" height="667">
+          <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" x="0" y="0" width="375" height="667">
+            <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" x="0" y="0" width="375" height="667">
+              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" x="0" y="0" width="375" height="593">
+                <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" x="20" y="40" width="335" height="81">
+                  <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" x="20" y="40" width="335" height="81">
+                    <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="moi-a" name="moi-a" label="moi-a" enabled="true" visible="true" x="20" y="40" width="335" height="41"/>
+                    <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="moi-b" name="moi-b" label="moi-b" enabled="true" visible="true" x="20" y="80" width="335" height="41"/>
+                  </XCUIElementTypeOther>
+                </XCUIElementTypeOther>
+              </XCUIElementTypeOther>
+              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" x="0" y="593" width="375" height="74">
+                <XCUIElementTypeButton type="XCUIElementTypeButton" name="select" label="select" enabled="true" visible="true" x="26" y="611" width="323" height="38"/>
+              </XCUIElementTypeOther>
+            </XCUIElementTypeOther>
+          </XCUIElementTypeOther>
+        </XCUIElementTypeOther>
+      </XCUIElementTypeOther>
+    </XCUIElementTypeOther>
+  </XCUIElementTypeWindow>
+  <XCUIElementTypeWindow type="XCUIElementTypeWindow" enabled="true" visible="false" x="0" y="0" width="375" height="667">
+    <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" x="0" y="0" width="375" height="667"/>
+  </XCUIElementTypeWindow>
+  <XCUIElementTypeWindow type="XCUIElementTypeWindow" enabled="true" visible="true" x="0" y="0" width="375" height="667">
+    <XCUIElementTypeStatusBar type="XCUIElementTypeStatusBar" enabled="true" visible="true" x="0" y="0" width="375" height="20">
+      <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" x="0" y="0" width="375" height="20"/>
+      <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" x="0" y="0" width="375" height="20">
+        <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" x="6" y="0" width="39" height="20"/>
+        <XCUIElementTypeOther type="XCUIElementTypeOther" value="SSID" name="3 of 3 Wi-Fi bars" label="3 of 3 Wi-Fi bars" enabled="true" visible="true" x="50" y="0" width="15" height="20"/>
+        <XCUIElementTypeOther type="XCUIElementTypeOther" name="9:51 PM" label="9:51 PM" enabled="true" visible="true" x="165" y="0" width="48" height="20"/>
+        <XCUIElementTypeOther type="XCUIElementTypeOther" name="-100% battery power" label="-100% battery power" enabled="true" visible="true" x="335" y="0" width="35" height="20"/>
+      </XCUIElementTypeOther>
+    </XCUIElementTypeStatusBar>
+  </XCUIElementTypeWindow>
+</XCUIElementTypeApplication></AppiumAUT>

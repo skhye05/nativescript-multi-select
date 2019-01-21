@@ -1,0 +1,15 @@
+<ActionBar class="action-bar">
+    <Label class="action-bar-title" text="Home"></Label>
+</ActionBar>
+
+<GridLayout rows="* auto" class="page">
+    <StackLayout row="0" class="p-20">
+        <GridLayout *ngFor="let item of selectedItems" rows="auto">
+            <Label [text]="item" class="text-center p-10" textWrap="true"></Label>
+        </GridLayout>
+    </StackLayout>
+
+    <StackLayout row="1" class="p-10">
+        <Button class="btn btn-primary" text="select" (tap)="onSelectTapped()"></Button>
+    </StackLayout>
+</GridLayout>

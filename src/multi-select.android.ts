@@ -31,13 +31,13 @@ export class MultiSelect {
             .titleSize(options.android ? options.android.titleSize ? options.android.titleSize : 25 : 25)
 
             // assign confirm button text
-            .positiveText(options.confirmButtonText ? options.confirmButtonText : "Confirm")
+            .positiveText(options.confirmButtonText ? options.confirmButtonText : "confirm")
 
             // assign confirm button text color
             .positiveTextColor(options.android ? options.android.confirmButtonTextColor ? new Color(options.android.confirmButtonTextColor).android : null : null)
 
             // assign cancel button text
-            .negativeText(options.cancelButtonText ? options.cancelButtonText : "Cancel")
+            .negativeText(options.cancelButtonText ? options.cancelButtonText : "cancel")
 
             // assign cancel button text color
             .positiveTextColor(options.android ? options.android.cancelButtonTextColor ? new Color(options.android.cancelButtonTextColor).android : null : null)

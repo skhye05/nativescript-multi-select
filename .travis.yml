@@ -57,6 +57,26 @@ matrix:
       jdk: oraclejdk8
       osx_image: xcode10.0
       script: cd src && npm run test.ios
+    - stage: "UI Tests"
+      env: 
+        - Android="23"
+      language: node_js
+      os: linux
+      node_js: "8"
+      script:
+        - npm i -g appium
+        - cd demo && npm i
+        - travis_retry npm run e2e -- --runType android23 --sauceLab --reuseDevice --ignoreDeviceController
+    - os: linux
+      env: 
+        - iOS="8"
+      language: node_js 
+      node_js: "8"
+      script:
+        - npm i -g appium
+        - cd demo && npm i
+        - travis_wait travis_retry npm run e2e -- --runType sim.iPhone8.iOS11.2 --sauceLab --reuseDevice
+
 
 android:
   components:
@@ -68,8 +88,7 @@ android:
     - sys-img-armeabi-v7a-android-21
 
 before_install:
-    - sudo pip install --upgrade pip
-    - sudo pip install six
+    - npm cache clean --force
 
 install:
     - echo no | npm install -g nativescript

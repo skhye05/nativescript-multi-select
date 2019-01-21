@@ -4,6 +4,11 @@
 
  Nativescript Multi Select is a popup dialog which provides multi selection, search through list and return the selected items.
 
+<p>
+  <img src="https://raw.githubusercontent.com/skhye05/NativeScript-Multi-Select/master/ios.gif"  width="300"/>
+  <img src="https://raw.githubusercontent.com/skhye05/NativeScript-Multi-Select/master/android.gif" width="300"/>
+</p>
+
 ## Installation
 
 ```javascript
@@ -11,6 +16,8 @@ tns plugin add nativescript-multi-select
 ```
 
 ## Usage
+
+### TypeScript
 
 ```typescript
 import { MultiSelect, AShowType } from 'nativescript-multi-select';
@@ -57,6 +64,145 @@ const options: MSOption = {
 MSelect.show(options);
 ```
 
+### Angular
+
+```typescript
+import { Component, OnInit, NgZone } from "@angular/core";
+import { MultiSelect, AShowType } from 'nativescript-multi-select';
+import { MSOption } from 'nativescript-multi-select';
+
+@Component({
+ // ...
+})
+export class SomeComponent implements OnInit {
+
+  private _MSelect: MultiSelect;
+  private predefinedItems: Array<any>;
+  public selectedItems: Array<any>;
+
+  constructor(private zone: NgZone) {
+    this._MSelect = new MultiSelect();
+    this.predefinedItems = ["moi-a", "moi-b"];
+  }
+
+  ngOnInit(): void {
+  }
+
+
+  public onSelectTapped(): void {
+    const options: MSOption = {
+      title: "Please Select",
+      selectedItems: this.predefinedItems,
+      items: [
+        { name: "A", value: "moi-a" },
+        { name: "B", value: "moi-b" },
+        { name: "C", value: "moi-c" },
+        { name: "D", value: "moi-d" },
+      ],
+      bindValue: 'value',
+      displayLabel: 'name',
+      onConfirm: selectedItems => {
+        this.zone.run(() => {
+          this.selectedItems = selectedItems;
+          this.predefinedItems = selectedItems;
+          console.log("SELECTED ITEMS => ", selectedItems);
+        })
+      },
+      onItemSelected: selectedItem => {
+        console.log("SELECTED ITEM => ", selectedItem);
+      },
+      onCancel: () => {
+        console.log('CANCEL');
+      },
+      android: {
+        titleSize: 25,
+        cancelButtonTextColor: "#252323",
+        confirmButtonTextColor: "#70798C",
+      },
+      ios: {
+        cancelButtonBgColor: "#252323",
+        confirmButtonBgColor: "#70798C",
+        cancelButtonTextColor: "#ffffff",
+        confirmButtonTextColor: "#ffffff",
+        showType: AShowType.TypeBounceIn
+      }
+    };
+
+    this._MSelect.show(options);
+  }
+}
+```
+
+### Vue
+
+```html
+<script>
+  import {
+    MultiSelect,
+    AShowType
+  } from "nativescript-multi-select";
+  const MSelect = new MultiSelect();
+  let predefinedItems = ["moi-a", "moi-b"];
+  
+  export default {
+    data() {
+    },
+    methods: {
+      onSelectTapped() {
+        const that = this;
+        const options = {
+          title: "Please Select",
+          selectedItems: predefinedItems,
+          items: [{
+              name: "A",
+              value: "moi-a"
+            },
+            {
+              name: "B",
+              value: "moi-b"
+            },
+            {
+              name: "C",
+              value: "moi-c"
+            },
+            {
+              name: "D",
+              value: "moi-d"
+            }
+          ],
+          bindValue: "value",
+          displayLabel: "name",
+          onConfirm: _selectedItems => {
+            that.selectedItems = _selectedItems;
+            console.log("SELECTED ITEMS => ", _selectedItems);
+          },
+          onItemSelected: selectedItem => {
+            console.log("SELECTED ITEM => ", selectedItem);
+          },
+          onCancel: () => {
+            console.log("CANCEL");
+          },
+          android: {
+            titleSize: 25,
+            cancelButtonTextColor: "#252323",
+            confirmButtonTextColor: "#70798C"
+          },
+          ios: {
+            cancelButtonBgColor: "#252323",
+            confirmButtonBgColor: "#70798C",
+            cancelButtonTextColor: "#ffffff",
+            confirmButtonTextColor: "#ffffff",
+            showType: AShowType.TypeBounceIn
+          }
+        };
+  
+        MSelect.show(options);
+      }
+    }
+  };
+</script>
+```
+
 ## API
 
 ### MultiSelect
@@ -65,7 +211,8 @@ MSelect.show(options);
 | ------------------------- | ----------- | ------------------------ |
 | `show(options: MSOption)` | `() : void` | Show Multi Select Dialog |
 
-### interface MSOption 
+### MSOption
+
 | Property                                         | Type                | Description                                                                                         |
 | ------------------------------------------------ | ------------------- | --------------------------------------------------------------------------------------------------- |
 | `title`                                          | `string`            | Dialog Title                                                                                        |
@@ -81,7 +228,15 @@ MSelect.show(options);
 | `onItemSelected: (selectedItem: any) => void`    | `Function Callback` | callback which fires when an item has been selected `optional`                                      |
 | `onCancel:  () => void`                          | `Function Callback` | callback which fires when the cancel button is tapped `optional`                                    |
 
-### interface MSiOSOption
+### MSAndroidOption (for android)
+
+| Property                 | Type     | Description |
+| ------------------------ | -------- | ----------- |
+| `titleSize`              | `number` | `optional`  |
+| `confirmButtonTextColor` | `string` | `optional`  |
+| `cancelButtonTextColor`  | `string` | `optional`  |
+
+### MSiOSOption (for ios)
 
 | Property                 | Type     | Description                                                                  |
 | ------------------------ | -------- | ---------------------------------------------------------------------------- |
@@ -92,14 +247,6 @@ MSelect.show(options);
 | `showType`               | `number` | popup view show type, default by AAPopupViewShowTypeFadeIn `optional`        |
 | `dismissType`            | `number` | popup view dismiss type, default by AAPopupViewDismissTypeFadeOut `optional` |
 | `itemColor`              | `string` | item text color `optional`                                                   |
-
-### interface MSAndroidOption
-
-| Property                 | Type     | Description |
-| ------------------------ | -------- | ----------- |
-| `titleSize`              | `number` | `optional`  |
-| `confirmButtonTextColor` | `string` | `optional`  |
-| `cancelButtonTextColor`  | `string` | `optional`  |
 
 ### iOS Popup: Animation AShowType ENUM
 

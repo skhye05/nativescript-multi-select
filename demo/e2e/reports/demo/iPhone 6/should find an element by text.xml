@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><AppiumAUT><XCUIElementTypeApplication type="XCUIElementTypeApplication" name="demo" label="demo" enabled="true" visible="true" x="0" y="0" width="375" height="667">
+  <XCUIElementTypeWindow type="XCUIElementTypeWindow" enabled="true" visible="true" x="0" y="0" width="375" height="667">
+    <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" x="0" y="0" width="375" height="667">
+      <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" x="0" y="0" width="375" height="667">
+        <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" x="0" y="0" width="375" height="667">
+          <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" x="0" y="0" width="375" height="667">
+            <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" x="0" y="0" width="375" height="667">
+              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" x="0" y="0" width="375" height="593"/>
+              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" x="0" y="593" width="375" height="74">
+                <XCUIElementTypeButton type="XCUIElementTypeButton" name="select" label="select" enabled="true" visible="false" x="26" y="611" width="323" height="38"/>
+              </XCUIElementTypeOther>
+            </XCUIElementTypeOther>
+          </XCUIElementTypeOther>
+        </XCUIElementTypeOther>
+      </XCUIElementTypeOther>
+    </XCUIElementTypeOther>
+    <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" x="0" y="0" width="375" height="667">
+      <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" x="0" y="0" width="375" height="667"/>
+      <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" x="18" y="33" width="338" height="601">
+        <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" x="18" y="33" width="338" height="601">
+          <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="Please Select" name="Please Select" label="Please Select" enabled="true" visible="true" x="18" y="48" width="338" height="18"/>
+          <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" x="18" y="91" width="338" height="56">
+            <XCUIElementTypeImage type="XCUIElementTypeImage" enabled="true" visible="false" x="18" y="91" width="338" height="56"/>
+            <XCUIElementTypeSearchField type="XCUIElementTypeSearchField" name="Search..." label="Search..." enabled="true" visible="true" x="26" y="101" width="322" height="36"/>
+          </XCUIElementTypeOther>
+          <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" x="18" y="147" width="338" height="1"/>
+          <XCUIElementTypeTable type="XCUIElementTypeTable" enabled="true" visible="true" x="18" y="147" width="338" height="402">
+            <XCUIElementTypeCell type="XCUIElementTypeCell" enabled="true" visible="true" x="18" y="147" width="338" height="51">
+              <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="A" name="A" label="A" enabled="true" visible="true" x="33" y="162" width="12" height="21"/>
+              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" x="33" y="197" width="323" height="1"/>
+              <XCUIElementTypeImage type="XCUIElementTypeImage" name="Frameworks/AAMultiSelectController.framework/AAMultiSelectController.bundle/AAicon_check.png" enabled="true" visible="false" x="320" y="162" width="21" height="21"/>
+            </XCUIElementTypeCell>
+            <XCUIElementTypeCell type="XCUIElementTypeCell" enabled="true" visible="true" x="18" y="197" width="338" height="51">
+              <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="B" name="B" label="B" enabled="true" visible="true" x="33" y="212" width="11" height="21"/>
+              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" x="33" y="247" width="323" height="1"/>
+              <XCUIElementTypeImage type="XCUIElementTypeImage" name="Frameworks/AAMultiSelectController.framework/AAMultiSelectController.bundle/AAicon_check.png" enabled="true" visible="false" x="320" y="212" width="21" height="21"/>
+            </XCUIElementTypeCell>
+            <XCUIElementTypeCell type="XCUIElementTypeCell" enabled="true" visible="true" x="18" y="247" width="338" height="51">
+              <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="C" name="C" label="C" enabled="true" visible="true" x="33" y="262" width="12" height="21"/>
+              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" x="33" y="297" width="323" height="1"/>
+            </XCUIElementTypeCell>
+            <XCUIElementTypeCell type="XCUIElementTypeCell" enabled="true" visible="true" x="18" y="297" width="338" height="51">
+              <XCUIElementTypeStaticText type="XCUIElementTypeStaticText" value="D" name="D" label="D" enabled="true" visible="true" x="33" y="312" width="12" height="21"/>
+              <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" x="33" y="347" width="323" height="1"/>
+            </XCUIElementTypeCell>
+          </XCUIElementTypeTable>
+          <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" x="18" y="558" width="338" height="1"/>
+          <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" x="38" y="573" width="298" height="41">
+            <XCUIElementTypeButton type="XCUIElementTypeButton" name="confirm" label="confirm" enabled="true" visible="true" x="38" y="573" width="119" height="41"/>
+            <XCUIElementTypeButton type="XCUIElementTypeButton" name="cancel" label="cancel" enabled="true" visible="true" x="216" y="573" width="120" height="41"/>
+          </XCUIElementTypeOther>
+        </XCUIElementTypeOther>
+      </XCUIElementTypeOther>
+    </XCUIElementTypeOther>
+  </XCUIElementTypeWindow>
+  <XCUIElementTypeWindow type="XCUIElementTypeWindow" enabled="true" visible="false" x="0" y="0" width="375" height="667">
+    <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" x="0" y="0" width="375" height="667"/>
+  </XCUIElementTypeWindow>
+  <XCUIElementTypeWindow type="XCUIElementTypeWindow" enabled="true" visible="true" x="0" y="0" width="375" height="667">
+    <XCUIElementTypeStatusBar type="XCUIElementTypeStatusBar" enabled="true" visible="true" x="0" y="0" width="375" height="20">
+      <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="false" x="0" y="0" width="375" height="20"/>
+      <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" x="0" y="0" width="375" height="20">
+        <XCUIElementTypeOther type="XCUIElementTypeOther" enabled="true" visible="true" x="6" y="0" width="39" height="20"/>
+        <XCUIElementTypeOther type="XCUIElementTypeOther" value="SSID" name="3 of 3 Wi-Fi bars" label="3 of 3 Wi-Fi bars" enabled="true" visible="true" x="50" y="0" width="15" height="20"/>
+        <XCUIElementTypeOther type="XCUIElementTypeOther" name="9:40 PM" label="9:40 PM" enabled="true" visible="true" x="164" y="0" width="50" height="20"/>
+        <XCUIElementTypeOther type="XCUIElementTypeOther" name="-100% battery power" label="-100% battery power" enabled="true" visible="true" x="335" y="0" width="35" height="20"/>
+      </XCUIElementTypeOther>
+    </XCUIElementTypeStatusBar>
+  </XCUIElementTypeWindow>
+</XCUIElementTypeApplication></AppiumAUT>
