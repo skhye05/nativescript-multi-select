@@ -1,12 +1,16 @@
 import { AppiumDriver, createDriver, SearchOptions } from "nativescript-dev-appium";
 import { assert } from "chai";
 
+let confirmText = "CONFIRM";
+const selectText = "select";
+
 describe("sample scenario", () => {
     const defaultWaitTime = 5000;
     let driver: AppiumDriver;
 
     before(async () => {
         driver = await createDriver();
+        confirmText = driver.nsCapabilities.device.platform === "android" ? confirmText : confirmText.toLowerCase();
     });
 
     after(async () => {
@@ -21,42 +25,42 @@ describe("sample scenario", () => {
     });
 
     it("should launch the multi select dialog", async () => {
-        const btnTap = await driver.findElementByAutomationText("select");
+        const btnTap = await driver.waitForElement("select");
         await btnTap.click();
 
         await driver.driver.sleep(2500);
 
-        const confirmButton = await driver.findElementByText("confirm", SearchOptions.exact);
-        assert.equal(await confirmButton.text(), "confirm");
+        const confirmButton = await driver.waitForElement(confirmText);
+        assert.equal(await confirmButton.text(), confirmText);
     });
 
     it("should select c item and click confirm", async () => {
-        const itemTap = await driver.findElementByText("C", SearchOptions.exact);
+        const itemTap = await driver.waitForElement("C");
         await itemTap.click();
 
         await driver.driver.sleep(1000);
 
-        const confirmButton = await driver.findElementByText("confirm", SearchOptions.exact);
+        const confirmButton = await driver.waitForElement(confirmText);
         await confirmButton.click();
 
         await driver.driver.sleep(1500);
 
-        const lblMessage = await driver.findElementByText("moi-c", SearchOptions.exact);
+        const lblMessage = await driver.waitForElement("moi-c");
         assert.equal(await lblMessage.text(), "moi-c");
     });
 
     it("should remove a item and click confirm", async () => {
-        const btnTap = await driver.findElementByAutomationText("select");
+        const btnTap = await driver.waitForElement(selectText);
         await btnTap.click();
 
         await driver.driver.sleep(500);
 
-        const itemTap = await driver.findElementByText("A", SearchOptions.exact);
+        const itemTap = await driver.waitForElement("A");
         await itemTap.click();
 
         await driver.driver.sleep(1000);
 
-        const confirmButton = await driver.findElementByText("confirm", SearchOptions.exact);
+        const confirmButton = await driver.waitForElement(confirmText);
         await confirmButton.click();
 
         await driver.driver.sleep(1500);
@@ -67,22 +71,22 @@ describe("sample scenario", () => {
     });
 
     it("should cancel selection", async () => {
-        const btnTap = await driver.findElementByAutomationText("select");
+        const btnTap = await driver.waitForElement(selectText);
         await btnTap.click();
 
         await driver.driver.sleep(500);
 
-        let itemTap = await driver.findElementByText("D", SearchOptions.exact);
+        let itemTap = await driver.waitForElement("D");
         await itemTap.click();
 
         await driver.driver.sleep(1000);
 
-        itemTap = await driver.findElementByText("A", SearchOptions.exact);
+        itemTap = await driver.waitForElement("A");
         await itemTap.click();
 
         await driver.driver.sleep(1000);
 
-        const confirmButton = await driver.findElementByText("cancel", SearchOptions.exact);
+        const confirmButton = await driver.waitForElement("cancel");
         await confirmButton.click();
 
         await driver.driver.sleep(1500);
