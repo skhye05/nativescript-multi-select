@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="Mocha Tests" time="397.601" tests="4" failures="0">
+  <testsuite name="Root Suite" timestamp="2019-01-21T23:13:41" tests="0" failures="0" time="0">
+  </testsuite>
+  <testsuite name="sample scenario" timestamp="2019-01-21T23:13:41" tests="4" file="/Users/eljo/Desktop/Projects/Mobile/PLUGINS/nativescript-multi-select/demo/e2e/sample.e2e-spec.js" failures="0" time="397.601">
+    <testcase name="sample scenario should launch the multi select dialog" time="69.361" classname="should launch the multi select dialog">
+    </testcase>
+    <testcase name="sample scenario should select c item and click confirm" time="98.453" classname="should select c item and click confirm">
+    </testcase>
+    <testcase name="sample scenario should remove a item and click confirm" time="95.495" classname="should remove a item and click confirm">
+    </testcase>
+    <testcase name="sample scenario should cancel selection" time="134.292" classname="should cancel selection">
+    </testcase>
+  </testsuite>
+</testsuites>

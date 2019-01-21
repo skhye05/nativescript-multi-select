@@ -63,7 +63,7 @@ describe("sample scenario", () => {
         const confirmButton = await driver.waitForElement(confirmText);
         await confirmButton.click();
 
-        await driver.driver.sleep(1500);
+        await driver.driver.sleep(1000);
 
         const listView = await driver.findElementsByText("moi", SearchOptions.contains);
 
@@ -89,7 +89,7 @@ describe("sample scenario", () => {
         const confirmButton = await driver.waitForElement("cancel");
         await confirmButton.click();
 
-        await driver.driver.sleep(1500);
+        await driver.driver.sleep(500);
 
         const listView = await driver.findElementsByText("moi", SearchOptions.contains);
 

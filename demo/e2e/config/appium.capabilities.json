@@ -101,7 +101,7 @@
         "fullReset": false,
         "app": ""
     },
-    "sauce.sim.iPhone6":{
+    "sauce.sim.iPhone6": {
         "platformName": "iOS",
         "platformVersion": "11.0",
         "deviceName": "iPhone 6",
@@ -138,6 +138,13 @@
         "deviceName": "iPhone XS",
         "noReset": false,
         "fullReset": false,
+        "app": ""
+    },
+    "sauce.sim.iPhone7": {
+        "platformName": "iOS",
+        "platformVersion": "12.0",
+        "deviceName": "iPhone 7 Simulator",
+        "appium-version": "1.9.1",
         "app": ""
     }
 }
