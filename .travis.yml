@@ -1,3 +1,12 @@
+env:
+  global:
+    - ANDROID_PACKAGE='app-debug.apk'
+    - ANDROID_PACKAGE_FOLDER=$TRAVIS_BUILD_DIR/demo/platforms/android/app/build/outputs/apk/debug
+    - ANDROID_SAUCE_STORAGE="https://saucelabs.com/rest/v1/storage/$SAUCE_USER/$ANDROID_PACKAGE?overwrite=true"
+    - IOS_PACKAGE='imagepickerdemo.zip'
+    - IOS_PACKAGE_FOLDER=$TRAVIS_BUILD_DIR/demo/platforms/ios/build/emulator
+    - IOS_SAUCE_STORAGE="https://saucelabs.com/rest/v1/storage/$SAUCE_USER/$IOS_PACKAGE?overwrite=true"
+
 git:
   depth: 1
 
@@ -52,6 +61,7 @@ matrix:
       before_install: nvm install stable
       script:
         - cd demo && npm run ci.android.build && cd ../demo-ng && npm run ci.android.build
+        - "curl -u $SAUCE_USER:$SAUCE_KEY -X POST -H 'Content-Type: application/octet-stream' $ANDROID_SAUCE_STORAGE --data-binary @$ANDROID_PACKAGE_FOLDER/$ANDROID_PACKAGE"
     - os: osx
       env: 
         - BuildiOS="12"
@@ -62,6 +72,8 @@ matrix:
       jdk: oraclejdk8
       script: 
         - cd demo && npm run ci.ios.build && cd ../demo-ng && npm run ci.ios.build
+        - cd $IOS_PACKAGE_FOLDER && zip -r $IOS_PACKAGE demo.app
+        - "curl -u $SAUCE_USER:$SAUCE_KEY -X POST -H 'Content-Type: application/octet-stream' $IOS_SAUCE_STORAGE --data-binary @$IOS_PACKAGE_FOLDER/$IOS_PACKAGE"
     # - os: linux
     #   language: android
     #   dist: precise
@@ -89,7 +101,7 @@ matrix:
       script:
         - npm i -g appium
         - cd demo && npm i
-        - travis_retry npm run e2e -- --runType android23 --sauceLab --reuseDevice --ignoreDeviceController
+        - travis_retry npm run e2e -- --runType android23 --sauceLab --appPath $ANDROID_PACKAGE
     - os: linux
       env: 
         - iOS="8"
@@ -98,7 +110,7 @@ matrix:
       script:
         - npm i -g appium
         - cd demo && npm i
-        - travis_wait travis_retry npm run e2e -- --runType sim.iPhone8.iOS11.2 --sauceLab --reuseDevice
+        - travis_wait travis_retry npm run e2e -- --runType sim11iPhone6 --sauceLab --appPath $IOS_PACKAGE
 
 
 android:
