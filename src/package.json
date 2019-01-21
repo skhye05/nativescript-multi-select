@@ -1,6 +1,6 @@
 {
     "name": "nativescript-multi-select",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "description": "Multi Select popup dialog.",
     "main": "multi-select",
     "typings": "index.d.ts",
@@ -44,7 +44,10 @@
         "iOS",
         "Multi Select",
         "MultiSelect",
-        "Select"
+        "Select",
+        "Select Dialog",
+        "Popup Select",
+        "Multi Select Dialog"
     ],
     "author": {
         "name": "Jonathan Mayunga",
