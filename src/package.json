@@ -14,8 +14,6 @@
         "tsc": "tsc -skipLibCheck",
         "build": "npm i && npm run tsc",
         "package": "cd ../publish && ./pack.sh",
-        "setup": "npm run build && cd ../demo && npm i",
-        "build.native": "node scripts/build-native.js",
         "postclone": "npm i && node scripts/postclone.js && cd ../demo && npm i && npx rimraf -- package-lock.json && cd ../src",
         "test.android": "npm run tsc && npm run tslint && cd ../demo && tns build android && tns test android --justlaunch",
         "test.ios": "npm run tsc && npm run tslint && cd ../demo && tns build ios && tns test ios --justlaunch",
