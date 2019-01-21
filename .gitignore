@@ -25,8 +25,5 @@ demo/report/report.html
 demo/report/stats.json
 **/e2e/reports
 **/e2e/test-results.xml
-publish/*lock.json
-src/*lock.json
-demo/*lock.json
-demo-ng/*lock.json
-demo-vue/*lock.json
+**/package-lock.json
+
