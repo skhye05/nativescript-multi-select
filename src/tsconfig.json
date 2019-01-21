@@ -2,12 +2,11 @@
     "compilerOptions": {
         "target": "es5",
         "module": "commonjs",
-        "declaration": true,
+        "declaration": false,
         "removeComments": true,
         "noLib": false,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
-        "skipLibCheck": true,
         "lib": ["es6", "dom"],
         "sourceMap": true,
         "pretty": true,
