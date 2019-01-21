@@ -290,7 +290,7 @@ Jonathan Mayunga, mayunga.j@gmail.com
 
 ## Credits
 
-- For Android we're using the [MultiSelectDialog by MultiSelectDialog](https://github.com/abumoallim/Android-Multi-Select-Dialog),
+- For Android we're using the [MultiSelectDialog by abumoallim](https://github.com/abumoallim/Android-Multi-Select-Dialog),
 - For iOS [AAMultiSelectController by Alex Ao](https://github.com/aozhimin/AAMultiSelectController).
 
 ## License
