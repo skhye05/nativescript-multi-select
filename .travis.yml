@@ -75,7 +75,7 @@ matrix:
       script: 
         - cd demo && npm run ci.ios.build && cd ../demo-ng && npm run ci.ios.build
         - cd $IOS_PACKAGE_FOLDER && zip -r $IOS_PACKAGE demo.app
-        - "curl -v -u $SAUCE_USER:$SAUCE_KEY -X POST $ANDROID_SAUCE_STORAGE -H 'Content-Type: application/octet-stream' --data-binary @$IOS_PACKAGE"
+        - "curl -v -u $SAUCE_USER:$SAUCE_KEY -X POST $IOS_SAUCE_STORAGE -H 'Content-Type: application/octet-stream' --data-binary @$IOS_PACKAGE"
     # - os: linux
     #   language: android
     #   dist: precise
