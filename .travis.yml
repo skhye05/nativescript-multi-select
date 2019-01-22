@@ -103,7 +103,7 @@ matrix:
       script:
         - npm i -g appium
         - cd demo && npm i
-        - travis_retry npm run e2e -- --runType android23 --sauceLab --appPath $ANDROID_PACKAGE
+        - travis_retry npm run e2e -- --runType sauce.android --sauceLab --appPath app-debug.apk
     - os: linux
       env: 
         - iOS="8"
@@ -112,7 +112,7 @@ matrix:
       script:
         - npm i -g appium
         - cd demo && npm i
-        - travis_wait travis_retry npm run e2e -- --runType sauce.sim.iPhone7 --sauceLab --appPath $IOS_PACKAGE
+        - travis_wait travis_retry npm run e2e -- --runType sauce.sim.iPhone7 --sauceLab --appPath multiselect.zip
 
 
 android:

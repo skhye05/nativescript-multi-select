@@ -83,6 +83,13 @@
         "fullReset": false,
         "app": ""
     },
+    "sauce.android": {
+        "platformName": "Android",
+        "platformVersion": "8.0",
+        "deviceName": "Android Emulator",
+        "appium-version": "1.9.1",
+        "noReset": true
+    },
     "samsungS7": {
         "platformName": "Android",
         "platformVersion": "27",
