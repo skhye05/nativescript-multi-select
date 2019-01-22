@@ -20,7 +20,7 @@ tns plugin add nativescript-multi-select
 
 ## Usage
 
-### ![typescript]("https://raw.githubusercontent.com/skhye05/NativeScript-Multi-Select/master/res/typescript.svg") TypeScript
+### <img src="./res/typescript.svg?sanitize=true"> TypeScript
 
 ```typescript
 import { MultiSelect, AShowType } from 'nativescript-multi-select';
