@@ -5,7 +5,7 @@
     </StackLayout>
 
     <StackLayout row="1" class="p-10">
-      <Button class="btn btn-primary" text="select" tap="{{ onSelectTapped }}"/>
+      <Button class="btn btn-primary" text="select" automationText="select" tap="{{ onSelectTapped }}"/>
     </StackLayout>
   </GridLayout>
 </Page>

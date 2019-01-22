@@ -23,3 +23,7 @@ publish/src
 publish/package
 demo/report/report.html
 demo/report/stats.json
+**/e2e/reports
+**/e2e/test-results.xml
+**/package-lock.json
+
