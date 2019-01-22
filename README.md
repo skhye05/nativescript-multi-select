@@ -1,5 +1,8 @@
 # Nativescript Multi Select
 
+[![npm](https://img.shields.io/npm/v/nativescript-multi-select.svg)](https://www.npmjs.com/package/nativescript-multi-select)
+[![npm](https://img.shields.io/npm/dt/nativescript-multi-select.svg?label=npm%20downloads)](https://www.npmjs.com/package/nativescript-multi-select)
+
 ## Overview
 
  Nativescript Multi Select is a popup dialog which provides multi selection, search through list and return the selected items.
