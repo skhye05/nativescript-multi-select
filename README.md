@@ -20,7 +20,7 @@ tns plugin add nativescript-multi-select
 
 ## Usage
 
-### ![typescript](https://raw.githubusercontent.com/skhye05/NativeScript-Multi-Select/master/res/typescript.png) TypeScript
+### <img src="https://raw.githubusercontent.com/skhye05/NativeScript-Multi-Select/master/res/typescript.png" width="12"/> TypeScript
 
 ```typescript
 import { MultiSelect, AShowType } from 'nativescript-multi-select';
@@ -67,7 +67,7 @@ const options: MSOption = {
 MSelect.show(options);
 ```
 
-### ![angular](https://raw.githubusercontent.com/skhye05/nativescript-multi-select/master/res/angular.png) Angular
+### <img src="https://raw.githubusercontent.com/skhye05/nativescript-multi-select/master/res/angular.png" width="12"/> Angular
 
 ```typescript
 import { Component, OnInit, NgZone } from "@angular/core";
@@ -136,7 +136,7 @@ export class SomeComponent implements OnInit {
 }
 ```
 
-### ![vue](https://raw.githubusercontent.com/skhye05/NativeScript-Multi-Select/master/res/vue.png) Vue
+### <img src="https://raw.githubusercontent.com/skhye05/NativeScript-Multi-Select/master/res/vue.png" width="12"/> Vue
 
 ```html
 <script>
