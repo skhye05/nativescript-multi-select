@@ -67,7 +67,7 @@ const options: MSOption = {
 MSelect.show(options);
 ```
 
-### ![angular]("https://raw.githubusercontent.com/skhye05/NativeScript-Multi-Select/master/res/angular.svg") Angular
+### ![angular](https://raw.githubusercontent.com/skhye05/nativescript-multi-select/master/res/angular.svg) Angular
 
 ```typescript
 import { Component, OnInit, NgZone } from "@angular/core";
