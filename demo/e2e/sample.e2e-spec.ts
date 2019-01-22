@@ -28,8 +28,6 @@ describe("sample scenario", () => {
         const btnTap = await driver.waitForElement("select");
         await btnTap.click();
 
-        await driver.driver.sleep(2500);
-
         const confirmButton = await driver.waitForElement(confirmText);
         assert.equal(await confirmButton.text(), confirmText);
     });
@@ -38,12 +36,8 @@ describe("sample scenario", () => {
         const itemTap = await driver.waitForElement("C");
         await itemTap.click();
 
-        await driver.driver.sleep(1000);
-
         const confirmButton = await driver.waitForElement(confirmText);
         await confirmButton.click();
-
-        await driver.driver.sleep(1500);
 
         const lblMessage = await driver.waitForElement("moi-c");
         assert.equal(await lblMessage.text(), "moi-c");
@@ -53,17 +47,11 @@ describe("sample scenario", () => {
         const btnTap = await driver.waitForElement(selectText);
         await btnTap.click();
 
-        await driver.driver.sleep(500);
-
         const itemTap = await driver.waitForElement("A");
         await itemTap.click();
 
-        await driver.driver.sleep(1000);
-
         const confirmButton = await driver.waitForElement(confirmText);
         await confirmButton.click();
-
-        await driver.driver.sleep(1000);
 
         const listView = await driver.findElementsByText("moi", SearchOptions.contains);
 
@@ -74,22 +62,14 @@ describe("sample scenario", () => {
         const btnTap = await driver.waitForElement(selectText);
         await btnTap.click();
 
-        await driver.driver.sleep(500);
-
         let itemTap = await driver.waitForElement("D");
         await itemTap.click();
-
-        await driver.driver.sleep(1000);
 
         itemTap = await driver.waitForElement("A");
         await itemTap.click();
 
-        await driver.driver.sleep(1000);
-
         const confirmButton = await driver.waitForElement("cancel");
         await confirmButton.click();
-
-        await driver.driver.sleep(500);
 
         const listView = await driver.findElementsByText("moi", SearchOptions.contains);
 
