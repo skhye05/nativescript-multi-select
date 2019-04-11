@@ -180,4 +180,3 @@ install:
     - echo no | npm install -g nativescript
     - tns usage-reporting disable
     - tns error-reporting disable
-
