@@ -1,5 +1,3 @@
-/// <reference path="../node_modules/tns-platform-declarations/android.d.ts" />
-
 declare namespace com {
  export namespace abdeveloper {
   export namespace library {

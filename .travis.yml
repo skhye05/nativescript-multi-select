@@ -34,7 +34,7 @@ matrix:
         - cd demo && npm run build.plugin && npm i && tns build ios --bundle --env.uglify --copy-to "./outputs/demo.app"
         - cd $IOS_PACKAGE_FOLDER && zip -r $IOS_PACKAGE demo.app
         - "curl -v -u $SAUCE_USER:$SAUCE_KEY -X POST $IOS_SAUCE_STORAGE -H 'Content-Type: application/octet-stream' --data-binary @$IOS_PACKAGE"
-      os: osx
+    - os: osx
       env:
         - WebPack="12.0"
         - Type="Angular"
@@ -180,3 +180,5 @@ install:
     - echo no | npm install -g nativescript
     - tns usage-reporting disable
     - tns error-reporting disable
+
+
