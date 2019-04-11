@@ -1,10 +1,10 @@
 env:
   global:
     - ANDROID_PACKAGE="app-debug.apk"
-    - ANDROID_PACKAGE_FOLDER=$TRAVIS_BUILD_DIR/demo/platforms/android/app/build/outputs/apk/debug
+    - ANDROID_PACKAGE_FOLDER=$TRAVIS_BUILD_DIR/demo/outputs
     - ANDROID_SAUCE_STORAGE="https://saucelabs.com/rest/v1/storage/$SAUCE_USER/$ANDROID_PACKAGE?overwrite=true"
     - IOS_PACKAGE="multiselect.zip"
-    - IOS_PACKAGE_FOLDER=$TRAVIS_BUILD_DIR/demo/platforms/ios/build/emulator
+    - IOS_PACKAGE_FOLDER=$TRAVIS_BUILD_DIR/demo/outputs
     - IOS_SAUCE_STORAGE="https://saucelabs.com/rest/v1/storage/$SAUCE_USER/$IOS_PACKAGE?overwrite=true"
 
 git:
@@ -30,7 +30,7 @@ matrix:
       node_js: "8"
       jdk: oraclejdk8
       script: 
-        - cd demo && npm run build.plugin && npm i && tns build ios --bundle --env.uglify 
+        - cd demo && npm run build.plugin && npm i && tns build ios --bundle --env.uglify --copy-to "./outputs/demo.app"
         - cd ../publish 
         - sh pack.sh
         - cp package/*.tgz ../demo-ng/package.tgz
@@ -45,7 +45,7 @@ matrix:
       jdk: oraclejdk8
       before_install: nvm install 8
       script: 
-        - cd demo && npm run build.plugin && npm i && tns build android --bundle --env.uglify --env.snapshot
+        - cd demo && npm run build.plugin && npm i && tns build android --bundle --env.uglify --env.snapshot  --copy-to "./outputs/app-debug.apk"
         - cd ../publish 
         - sh pack.sh
         - cp package/*.tgz ../demo-ng/package.tgz
