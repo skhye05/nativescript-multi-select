@@ -1,6 +1,8 @@
 import { MSOption } from "./multi-select.common";
 import { Color } from "tns-core-modules/color/color";
 
+declare var AAMultiSelectViewController;
+
 export class MultiSelect {
     private MSSelect: AAMultiSelectViewController;
     private _selectedItems: Array<any>; // predefined/selected items list
