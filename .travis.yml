@@ -181,17 +181,3 @@ install:
     - tns usage-reporting disable
     - tns error-reporting disable
 
-
-# Hi Aston,
-
-# Find below the list of enhancement i have pick up
-# - User validations 
-# - Pin Setup 
-# - Enable the ability to sync multiple time instead of doing at the edn of shift 
-# - View History of Sync Status on the phone 
-# - Enable the Admin to change the device name/id in case the previous device is damage or not operational 
-# - Create a syncscreen for admin so that only the admin can uplaod
-# - Enable OPT reusabilty in case the device is damage and replace with another with the same data
-
-# Regards,
-# Jonathan
