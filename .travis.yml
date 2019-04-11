@@ -32,8 +32,8 @@ matrix:
       jdk: oraclejdk8
       script: 
         - cd demo && npm run build.plugin && npm i && tns build ios --bundle --env.uglify --copy-to "./outputs/demo.app"
-        - cd $IOS_PACKAGE_FOLDER && zip -r $IOS_PACKAGE demo.app
-        - "curl -v -u $SAUCE_USER:$SAUCE_KEY -X POST $IOS_SAUCE_STORAGE -H 'Content-Type: application/octet-stream' --data-binary @$IOS_PACKAGE"
+    #     - cd $IOS_PACKAGE_FOLDER && zip -r $IOS_PACKAGE demo.app
+    #     - "curl -v -u $SAUCE_USER:$SAUCE_KEY -X POST $IOS_SAUCE_STORAGE -H 'Content-Type: application/octet-stream' --data-binary @$IOS_PACKAGE"
     - os: osx
       env:
         - WebPack="12.0"
@@ -59,7 +59,7 @@ matrix:
       before_install: nvm install 8
       script: 
         - cd demo && npm run build.plugin && npm i && tns build android --bundle --env.uglify --env.snapshot --copy-to "./outputs/app-debug.apk"
-        - "curl -v -u $SAUCE_USER:$SAUCE_KEY -X POST $ANDROID_SAUCE_STORAGE -H 'Content-Type: application/octet-stream' --data-binary @$ANDROID_PACKAGE_FOLDER/$ANDROID_PACKAGE"
+    #     - "curl -v -u $SAUCE_USER:$SAUCE_KEY -X POST $ANDROID_SAUCE_STORAGE -H 'Content-Type: application/octet-stream' --data-binary @$ANDROID_PACKAGE_FOLDER/$ANDROID_PACKAGE"
     - language: android
       os: linux
       env:
@@ -133,25 +133,25 @@ matrix:
     #   jdk: oraclejdk8
     #   osx_image: xcode10.0
     #   script: cd src && npm run test.ios
-    - stage: "UI Tests"
-      env: 
-        - Android="28"
-      language: node_js
-      os: linux
-      node_js: "10"
-      script:
-        - npm i -g appium
-        - cd demo && npm i
-        - npm run e2e -- --runType sauce.android --sauceLab --appPath app-debug.apk
-    - os: linux
-      env: 
-        - iOS="12"
-      language: node_js 
-      node_js: "8"
-      script:
-        - npm i -g appium
-        - cd demo && npm i
-        - npm run e2e -- --runType sauce.sim.iPhone7 --sauceLab --appPath multiselect.zip
+    # - stage: "UI Tests"
+    #   env: 
+    #     - Android="28"
+    #   language: node_js
+    #   os: linux
+    #   node_js: "10"
+    #   script:
+    #     - npm i -g appium
+    #     - cd demo && npm i
+    #     - npm run e2e -- --runType sauce.android --sauceLab --appPath app-debug.apk
+    # - os: linux
+    #   env: 
+    #     - iOS="12"
+    #   language: node_js 
+    #   node_js: "8"
+    #   script:
+    #     - npm i -g appium
+    #     - cd demo && npm i
+    #     - npm run e2e -- --runType sauce.sim.iPhone7 --sauceLab --appPath multiselect.zip
 
 
 android:
