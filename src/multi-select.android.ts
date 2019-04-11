@@ -2,7 +2,6 @@ import { MSOption } from "./multi-select.common";
 import { Color } from "tns-core-modules/color/color";
 import * as application from "tns-core-modules/application";
 
-declare var java;
 declare var com;
 
 export class MultiSelect {
