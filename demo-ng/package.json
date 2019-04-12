@@ -22,7 +22,7 @@
         "@angular/platform-browser-dynamic": "~7.1.0",
         "@angular/router": "~7.1.0",
         "nativescript-angular": "~7.1.0",
-          "nativescript-multi-select": "../src",
+        "nativescript-multi-select": "../src",
         "nativescript-theme-core": "~1.0.4",
         "reflect-metadata": "~0.1.10",
         "rxjs": "~6.3.0",
