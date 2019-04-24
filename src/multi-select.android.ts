@@ -42,7 +42,7 @@ export class MultiSelect {
             .negativeText(options.cancelButtonText ? options.cancelButtonText : "cancel")
 
             // assign cancel button text color
-            .positiveTextColor(options.android ? options.android.cancelButtonTextColor ? new Color(options.android.cancelButtonTextColor).android : null : null)
+            .negativeTextColor(options.android ? options.android.cancelButtonTextColor ? new Color(options.android.cancelButtonTextColor).android : null : null)
 
             .setMinSelectionLimit(0)
 
