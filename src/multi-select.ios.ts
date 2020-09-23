@@ -57,18 +57,6 @@ export class MultiSelect {
         // on cancel button tapped
         if (options.onCancel) {
             this.MSSelect.cancelBlock = (p1: any) => {
-                const mutableArray: NSMutableArray<any> = NSMutableArray.array();
-
-                // remove all selected items that doesn't belong to predefined
-                options.items.forEach((item, index) => {
-                    const model: AAMultiSelectModel = AAMultiSelectModel.new();
-                    model.title = item;
-                    model.isSelected = false;
-                    model.multiSelectId = index;
-                    mutableArray.addObject(model);
-                });
-
-                this.MSSelect.dataArray = mutableArray;
                 options.onCancel();
             };
         }
